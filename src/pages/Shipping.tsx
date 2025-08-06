@@ -32,7 +32,7 @@ const Shipping = () => {
             <div className="text-center mb-12">
               <Truck className="w-16 h-16 text-blue-600 mx-auto mb-6" />
               <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Shipping Policy</h1>
-              <p className="text-lg text-gray-600">Equipment delivery and installation information</p>
+              <p className="text-lg text-gray-600">Effective Date: {new Date().toLocaleDateString()}</p>
             </div>
 
             <div className="prose prose-lg max-w-none">
@@ -43,37 +43,36 @@ const Shipping = () => {
                     Equipment Shipping
                   </h2>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    SkyLink provides all necessary equipment for your satellite internet service. Our equipment shipping process includes:
+                    SkyLink provides all necessary equipment for satellite internet service delivery. Our equipment shipping policy covers:
                   </p>
                   <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Professional-grade satellite dish and modem</li>
-                    <li>All necessary cables and mounting hardware</li>
-                    <li>Installation instructions and setup guides</li>
-                    <li>Professional installation coordination</li>
+                    <li>Satellite dish and mounting equipment</li>
+                    <li>Modem and router hardware</li>
+                    <li>All necessary cables and connectors</li>
+                    <li>Installation guides and documentation</li>
                   </ul>
                 </section>
 
                 <section>
                   <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
                     <Clock className="w-6 h-6 text-blue-600 mr-3" />
-                    Delivery Timeline
+                    Shipping Timeframes
                   </h2>
                   <div className="bg-blue-50 rounded-2xl p-6 mb-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Standard Delivery</h3>
-                    <ul className="text-gray-700 space-y-2">
+                    <h3 className="font-bold text-gray-900 mb-3">Standard Shipping</h3>
+                    <ul className="list-disc list-inside text-gray-700 space-y-2">
                       <li><strong>Processing Time:</strong> 1-2 business days</li>
-                      <li><strong>Shipping Time:</strong> 3-7 business days</li>
-                      <li><strong>Total Delivery:</strong> 4-9 business days from order</li>
+                      <li><strong>Delivery Time:</strong> 3-7 business days</li>
+                      <li><strong>Cost:</strong> Free for all service plans</li>
                     </ul>
                   </div>
                   
                   <div className="bg-green-50 rounded-2xl p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Express Delivery</h3>
-                    <ul className="text-gray-700 space-y-2">
-                      <li><strong>Processing Time:</strong> Same business day</li>
-                      <li><strong>Shipping Time:</strong> 1-2 business days</li>
-                      <li><strong>Total Delivery:</strong> 1-3 business days from order</li>
-                      <li><strong>Additional Fee:</strong> $50 express shipping charge</li>
+                    <h3 className="font-bold text-gray-900 mb-3">Expedited Shipping</h3>
+                    <ul className="list-disc list-inside text-gray-700 space-y-2">
+                      <li><strong>Processing Time:</strong> Same day (orders placed before 2 PM ET)</li>
+                      <li><strong>Delivery Time:</strong> 1-2 business days</li>
+                      <li><strong>Cost:</strong> $29.99 (available upon request)</li>
                     </ul>
                   </div>
                 </section>
@@ -84,109 +83,81 @@ const Shipping = () => {
                     Coverage Areas
                   </h2>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    We ship equipment to all 50 states and most territories:
+                    We ship equipment to all service areas within the continental United States:
                   </p>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-gray-50 rounded-2xl p-6">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3">Standard Shipping Areas</h3>
-                      <ul className="text-gray-700 space-y-1">
-                        <li>All 50 US States</li>
-                        <li>Washington D.C.</li>
-                        <li>Puerto Rico</li>
-                        <li>US Virgin Islands</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-yellow-50 rounded-2xl p-6">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3">Special Handling Required</h3>
-                      <ul className="text-gray-700 space-y-1">
-                        <li>Alaska (additional 2-5 days)</li>
-                        <li>Hawaii (additional 2-5 days)</li>
-                        <li>Remote rural areas</li>
-                        <li>Military APO/FPO addresses</li>
-                      </ul>
-                    </div>
-                  </div>
+                  <ul className="list-disc list-inside text-gray-700 space-y-2">
+                    <li>All 48 contiguous United States</li>
+                    <li>Alaska and Hawaii (additional shipping time may apply)</li>
+                    <li>Rural and remote locations</li>
+                    <li>PO Boxes and APO/FPO addresses</li>
+                  </ul>
                 </section>
 
                 <section>
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Professional Installation</h2>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Professional installation is included with all service plans at no additional cost:
+                    In addition to equipment shipping, SkyLink offers professional installation services:
                   </p>
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Certified technician will contact you within 24 hours of equipment delivery</li>
-                    <li>Installation appointment scheduled at your convenience</li>
-                    <li>Complete system setup and configuration</li>
-                    <li>Signal optimization and testing</li>
-                    <li>Customer training and support materials</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Shipping Costs</h2>
-                  <div className="bg-green-100 rounded-2xl p-6 mb-4">
-                    <div className="flex items-center mb-3">
-                      <Package className="w-6 h-6 text-green-600 mr-2" />
-                      <h3 className="text-lg font-semibold text-gray-900">Free Standard Shipping</h3>
-                    </div>
-                    <p className="text-gray-700">
-                      Standard shipping is included at no charge for all new service activations.
-                    </p>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                      <span className="text-gray-700">Standard Shipping (4-9 business days)</span>
-                      <span className="text-green-600 font-semibold">FREE</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                      <span className="text-gray-700">Express Shipping (1-3 business days)</span>
-                      <span className="text-gray-900 font-semibold">$50</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                      <span className="text-gray-700">Alaska/Hawaii Additional</span>
-                      <span className="text-gray-900 font-semibold">$25</span>
-                    </div>
+                  <div className="bg-gray-50 rounded-2xl p-6">
+                    <h3 className="font-bold text-gray-900 mb-3">Installation Options</h3>
+                    <ul className="list-disc list-inside text-gray-700 space-y-2">
+                      <li><strong>Professional Installation:</strong> Free with all plans</li>
+                      <li><strong>Self-Installation:</strong> Detailed guides included</li>
+                      <li><strong>Installation Scheduling:</strong> Within 7-14 days of equipment delivery</li>
+                      <li><strong>Technician Support:</strong> Available during installation</li>
+                    </ul>
                   </div>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Tracking Your Order</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Package Tracking</h2>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Stay informed about your equipment delivery:
+                    Track your equipment shipment every step of the way:
                   </p>
                   <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Tracking number provided via email within 24 hours of shipping</li>
-                    <li>Real-time updates on package location and delivery status</li>
-                    <li>SMS notifications available for delivery updates</li>
-                    <li>Customer service available for tracking assistance</li>
+                    <li>Email confirmation with tracking number</li>
+                    <li>Real-time shipment updates</li>
+                    <li>Delivery confirmation</li>
+                    <li>Customer support for shipping questions</li>
                   </ul>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Delivery Requirements</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Shipping Damage or Loss</h2>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    To ensure successful delivery of your equipment:
+                    If your equipment arrives damaged or is lost in transit:
                   </p>
                   <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Someone 18+ must be available to receive and sign for delivery</li>
-                    <li>Valid photo ID required for package receipt</li>
-                    <li>Delivery address must match service installation address</li>
-                    <li>Secure location required for package storage if not home</li>
+                    <li>Report damage within 48 hours of delivery</li>
+                    <li>Keep all original packaging materials</li>
+                    <li>Contact customer service immediately</li>
+                    <li>Replacement equipment shipped at no charge</li>
                   </ul>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact for Shipping Questions</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Equipment Returns</h2>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    When service is cancelled, equipment must be returned:
+                  </p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Pre-paid return shipping label provided</li>
+                    <li>30-day return window from cancellation date</li>
+                    <li>Equipment must be in original condition</li>
+                    <li>Failure to return may result in equipment charges</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h2>
                   <p className="text-gray-700 leading-relaxed">
-                    If you have questions about equipment shipping or need to modify your delivery:
+                    For questions about shipping or equipment delivery:
                   </p>
                   <div className="bg-gray-50 rounded-2xl p-6 mt-4">
                     <p className="text-gray-800 font-semibold">SkyLink Shipping Department</p>
                     <p className="text-gray-700">Email: shipping@skylinkinternet.com</p>
                     <p className="text-gray-700">Phone: 1-800-555-0123</p>
-                    <p className="text-gray-600 text-sm mt-2">Available Monday-Friday, 8 AM - 8 PM EST</p>
+                    <p className="text-gray-700">Hours: Monday-Friday, 8 AM - 8 PM ET</p>
                   </div>
                 </section>
               </div>
