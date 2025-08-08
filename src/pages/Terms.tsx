@@ -1,173 +1,230 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Zap, ArrowLeft, FileText, Scale, AlertCircle } from 'lucide-react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import { FileText, Scale, AlertCircle, CheckCircle } from 'lucide-react';
 
 const Terms = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-white/20 shadow-lg">
-        <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 sm:h-20">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">SkyLink</span>
-            </Link>
-            
-            <Link to="/" className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Home</span>
-            </Link>
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto text-center">
+            <Scale className="w-16 h-16 text-blue-600 mx-auto mb-6" />
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+              Terms of Use
+            </h1>
+            <p className="text-xl text-gray-600 mb-4">
+              The terms and conditions governing your use of Contract Guard
+            </p>
+            <p className="text-lg text-gray-500">Last updated: {new Date().toLocaleDateString()}</p>
           </div>
-        </nav>
-      </header>
+        </div>
+      </section>
 
-      {/* Content */}
-      <div className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto max-w-4xl">
-          <div className="bg-white/70 backdrop-blur-md rounded-3xl p-8 sm:p-12 border border-white/30 shadow-lg">
-            <div className="text-center mb-12">
-              <Scale className="w-16 h-16 text-blue-600 mx-auto mb-6" />
-              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Terms of Service</h1>
-              <p className="text-lg text-gray-600">Effective Date: {new Date().toLocaleDateString()}</p>
-            </div>
-
-            <div className="prose prose-lg max-w-none">
-              <div className="space-y-8">
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+      {/* Terms Content */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 sm:p-12">
+              
+              <div className="space-y-12">
+                
+                <div>
+                  <div className="flex items-center mb-6">
                     <FileText className="w-6 h-6 text-blue-600 mr-3" />
-                    Acceptance of Terms
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed">
-                    By accessing and using SkyLink's satellite internet service, you accept and agree to be bound by the terms and provision of this agreement. These Terms of Service govern your use of our services, website, and any related software or applications.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Service Description</h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    SkyLink provides high-speed satellite internet service to residential and business customers. Our services include:
-                  </p>
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>High-speed satellite internet connectivity</li>
-                    <li>Equipment installation and maintenance</li>
-                    <li>24/7 customer support</li>
-                    <li>Service monitoring and technical support</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Service Plans and Pricing</h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    We offer various service plans with different speeds and data allowances. Pricing and plan details are subject to change with notice. Key terms include:
-                  </p>
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Monthly service fees are due in advance</li>
-                    <li>Installation may be subject to additional fees</li>
-                    <li>Equipment rental fees may apply</li>
-                    <li>Early termination fees may apply to certain plans</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Equipment</h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    SkyLink provides necessary equipment for service delivery, including satellite dishes, modems, and related hardware:
-                  </p>
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Equipment remains property of SkyLink unless purchased</li>
-                    <li>Customer is responsible for equipment care and security</li>
-                    <li>Lost or damaged equipment may result in replacement charges</li>
-                    <li>Professional installation is recommended and may be required</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                    <AlertCircle className="w-6 h-6 text-blue-600 mr-3" />
-                    Acceptable Use Policy
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    Our service must be used in compliance with all applicable laws and regulations. Prohibited activities include:
-                  </p>
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Illegal activities or content distribution</li>
-                    <li>Network abuse or attempts to compromise security</li>
-                    <li>Excessive bandwidth usage that affects other customers</li>
-                    <li>Commercial resale without authorization</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Service Availability</h2>
-                  <p className="text-gray-700 leading-relaxed">
-                    While we strive to provide continuous service, satellite internet may be affected by weather conditions, equipment issues, or other factors beyond our control. We do not guarantee 100% uptime and are not liable for service interruptions.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Privacy</h2>
-                  <p className="text-gray-700 leading-relaxed">
-                    Your privacy is important to us. Please review our Privacy Policy, which explains how we collect, use, and protect your personal information. By using our service, you consent to our privacy practices.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Termination</h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    Either party may terminate service with proper notice:
-                  </p>
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Customers may cancel with 30 days written notice</li>
-                    <li>SkyLink may terminate for non-payment or policy violations</li>
-                    <li>Equipment must be returned upon termination</li>
-                    <li>Final billing will include prorated charges and fees</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Limitation of Liability</h2>
-                  <p className="text-gray-700 leading-relaxed">
-                    SkyLink's liability is limited to the monthly service charges. We are not liable for indirect, incidental, or consequential damages arising from service use or interruption.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h2>
-                  <p className="text-gray-700 leading-relaxed">
-                    For questions about these Terms of Service or our policies, please contact us:
-                  </p>
-                  <div className="bg-gray-50 rounded-2xl p-6 mt-4">
-                    <p className="text-gray-800 font-semibold">SkyLink Customer Service</p>
-                    <p className="text-gray-700">Email: legal@skylinkinternet.com</p>
-                    <p className="text-gray-700">Phone: 1-800-555-0123</p>
+                    <h2 className="text-2xl font-bold text-gray-900">Acceptance of Terms</h2>
                   </div>
-                </section>
+                  <div className="text-gray-600 space-y-4">
+                    <p>
+                      By accessing and using Contract Guard's services, you accept and agree to be bound by the terms 
+                      and conditions of this agreement. If you do not agree to abide by the above, please do not use this service.
+                    </p>
+                    <p>
+                      These Terms of Use govern your use of our website, mobile applications, and all related services, 
+                      features, and content offered by Contract Guard.
+                    </p>
+                  </div>
+                </div>
 
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Changes to Terms</h2>
-                  <p className="text-gray-700 leading-relaxed">
-                    We reserve the right to modify these terms at any time. Changes will be posted on our website and customers will be notified of material changes. Continued use of our service constitutes acceptance of updated terms.
-                  </p>
-                </section>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Service Description</h2>
+                  <div className="text-gray-600 space-y-4">
+                    <p>Contract Guard provides AI-powered contract analysis services, including:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Automated contract scanning and risk detection</li>
+                      <li>Legal clause analysis and plain-language explanations</li>
+                      <li>Red flag identification and scam pattern recognition</li>
+                      <li>Contract recommendations and negotiation guidance</li>
+                      <li>Document storage and history tracking</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">User Responsibilities</h2>
+                  <div className="text-gray-600 space-y-4">
+                    <p>As a user of Contract Guard, you agree to:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Provide accurate and complete account information</li>
+                      <li>Maintain the security of your account credentials</li>
+                      <li>Use the service only for lawful purposes</li>
+                      <li>Not upload malicious files or attempt to compromise our systems</li>
+                      <li>Respect intellectual property rights</li>
+                      <li>Not reverse engineer or attempt to extract our AI models</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex items-center mb-6">
+                    <AlertCircle className="w-6 h-6 text-blue-600 mr-3" />
+                    <h2 className="text-2xl font-bold text-gray-900">Important Disclaimers</h2>
+                  </div>
+                  <div className="text-gray-600 space-y-4">
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+                      <p className="font-semibold text-gray-900 mb-2">Not Legal Advice</p>
+                      <p>
+                        Contract Guard provides automated analysis and information only. Our service does not constitute 
+                        legal advice, and we are not a law firm. Always consult with qualified legal professionals 
+                        for specific legal matters.
+                      </p>
+                    </div>
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                      <p className="font-semibold text-gray-900 mb-2">AI Limitations</p>
+                      <p>
+                        While our AI is highly accurate, it may not catch every issue or risk in a contract. 
+                        Users should exercise their own judgment and seek professional legal review when appropriate.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Subscription and Billing</h2>
+                  <div className="text-gray-600 space-y-4">
+                    <p>Our subscription terms include:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Monthly billing cycles with automatic renewal</li>
+                      <li>30-day money-back guarantee for new subscribers</li>
+                      <li>Cancel anytime with no long-term commitments</li>
+                      <li>Prorated billing for plan changes</li>
+                      <li>All fees are non-refundable except as stated in our refund policy</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Intellectual Property</h2>
+                  <div className="text-gray-600 space-y-4">
+                    <p>
+                      Contract Guard retains all rights to our platform, AI models, analysis algorithms, and related 
+                      intellectual property. You retain ownership of any contracts you upload, but grant us a limited 
+                      license to process them for analysis purposes.
+                    </p>
+                    <p>
+                      You may not copy, distribute, or create derivative works based on our proprietary technology 
+                      without explicit written permission.
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Privacy and Data Protection</h2>
+                  <div className="text-gray-600 space-y-4">
+                    <p>
+                      Your privacy is important to us. Our data handling practices are detailed in our Privacy Policy, 
+                      which is incorporated by reference into these Terms. Key points include:
+                    </p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Uploaded contracts are encrypted and automatically deleted after 30 days</li>
+                      <li>We never share your contracts with third parties</li>
+                      <li>Only AI systems process your documents - no human review</li>
+                      <li>You can request immediate deletion of your data at any time</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Limitation of Liability</h2>
+                  <div className="text-gray-600 space-y-4">
+                    <p>
+                      Contract Guard's liability is limited to the maximum extent permitted by law. We are not liable for:
+                    </p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Any decisions you make based on our analysis</li>
+                      <li>Indirect, incidental, or consequential damages</li>
+                      <li>Loss of profits, data, or business opportunities</li>
+                      <li>Any damages exceeding the amount paid for our services</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Termination</h2>
+                  <div className="text-gray-600 space-y-4">
+                    <p>
+                      Either party may terminate this agreement at any time. Upon termination:
+                    </p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Your access to the service will be immediately suspended</li>
+                      <li>Your data will be deleted according to our retention policy</li>
+                      <li>You remain responsible for any outstanding fees</li>
+                      <li>Provisions regarding limitation of liability and intellectual property survive termination</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Governing Law</h2>
+                  <div className="text-gray-600">
+                    <p>
+                      These Terms are governed by and construed in accordance with the laws of the State of California, 
+                      without regard to conflict of law principles. Any disputes will be resolved in the courts of 
+                      San Francisco County, California.
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
+                  <div className="text-gray-600">
+                    <p className="mb-4">
+                      If you have questions about these Terms of Use, please contact us:
+                    </p>
+                    <div className="bg-gray-50 rounded-lg p-6">
+                      <p className="font-semibold text-gray-900">Contract Guard Legal Team</p>
+                      <p>Email: legal@contractguard.com</p>
+                      <p>Phone: 1-800-CONTRACT</p>
+                      <p>Address: San Francisco, CA</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex items-center mb-6">
+                    <CheckCircle className="w-6 h-6 text-green-600 mr-3" />
+                    <h2 className="text-2xl font-bold text-gray-900">Changes to Terms</h2>
+                  </div>
+                  <div className="text-gray-600">
+                    <p>
+                      We reserve the right to modify these terms at any time. We will notify users of material changes 
+                      via email and by posting updates on our website. Continued use of our service after changes 
+                      constitutes acceptance of the updated terms.
+                    </p>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto text-center">
-          <p className="text-gray-300">
-            © {new Date().getFullYear()} SkyLink Satellite Internet. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

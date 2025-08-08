@@ -1,147 +1,187 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Zap, ArrowLeft, Shield, Eye, Lock } from 'lucide-react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import { Shield, Eye, Lock, FileText } from 'lucide-react';
 
 const Privacy = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-white/20 shadow-lg">
-        <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 sm:h-20">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">SkyLink</span>
-            </Link>
-            
-            <Link to="/" className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Home</span>
-            </Link>
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto text-center">
+            <Shield className="w-16 h-16 text-blue-600 mx-auto mb-6" />
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+              Privacy Policy
+            </h1>
+            <p className="text-xl text-gray-600 mb-4">
+              Your privacy and data security are our top priorities
+            </p>
+            <p className="text-lg text-gray-500">Last updated: {new Date().toLocaleDateString()}</p>
           </div>
-        </nav>
-      </header>
+        </div>
+      </section>
 
-      {/* Content */}
-      <div className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto max-w-4xl">
-          <div className="bg-white/70 backdrop-blur-md rounded-3xl p-8 sm:p-12 border border-white/30 shadow-lg">
-            <div className="text-center mb-12">
-              <Shield className="w-16 h-16 text-blue-600 mx-auto mb-6" />
-              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
-              <p className="text-lg text-gray-600">Effective Date: {new Date().toLocaleDateString()}</p>
-            </div>
-
-            <div className="prose prose-lg max-w-none">
-              <div className="space-y-8">
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+      {/* Privacy Policy Content */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 sm:p-12">
+              
+              <div className="space-y-12">
+                
+                <div>
+                  <div className="flex items-center mb-6">
                     <Eye className="w-6 h-6 text-blue-600 mr-3" />
-                    Information We Collect
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    We collect information you provide directly to us, such as when you create an account, 
-                    sign up for our services, or contact us for support. This may include:
-                  </p>
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Personal information (name, email address, phone number, mailing address)</li>
-                    <li>Payment information (credit card details, billing address)</li>
-                    <li>Service location and installation preferences</li>
-                    <li>Communication preferences and support requests</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                    <Lock className="w-6 h-6 text-blue-600 mr-3" />
-                    How We Use Your Information
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    We use the information we collect to provide, maintain, and improve our services, including:
-                  </p>
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Providing satellite internet service and customer support</li>
-                    <li>Processing payments and billing</li>
-                    <li>Communicating with you about your service and account</li>
-                    <li>Improving our services and developing new features</li>
-                    <li>Complying with legal obligations and protecting our rights</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Information Sharing</h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    We do not sell, trade, or otherwise transfer your personal information to third parties 
-                    without your consent, except in the following circumstances:
-                  </p>
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>To service providers who assist us in operating our business</li>
-                    <li>When required by law or to protect our rights and safety</li>
-                    <li>In connection with a business transaction (merger, acquisition, etc.)</li>
-                    <li>With your explicit consent for specific purposes</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Data Security</h2>
-                  <p className="text-gray-700 leading-relaxed">
-                    We implement appropriate technical and organizational measures to protect your personal 
-                    information against unauthorized access, alteration, disclosure, or destruction. However, 
-                    no method of transmission over the internet or electronic storage is 100% secure.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Your Rights</h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    You have certain rights regarding your personal information, including:
-                  </p>
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Access to your personal information</li>
-                    <li>Correction of inaccurate information</li>
-                    <li>Deletion of your information (subject to legal requirements)</li>
-                    <li>Opting out of marketing communications</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
-                  <p className="text-gray-700 leading-relaxed">
-                    If you have any questions about this Privacy Policy or our privacy practices, 
-                    please contact us at:
-                  </p>
-                  <div className="bg-gray-50 rounded-2xl p-6 mt-4">
-                    <p className="text-gray-800 font-semibold">SkyLink Privacy Team</p>
-                    <p className="text-gray-700">Email: privacy@skylinkinternet.com</p>
-                    <p className="text-gray-700">Phone: 1-800-555-0123</p>
+                    <h2 className="text-2xl font-bold text-gray-900">Information We Collect</h2>
                   </div>
-                </section>
+                  <div className="text-gray-600 space-y-4">
+                    <p>
+                      We collect information you provide directly to us when you create an account, 
+                      use our services, or communicate with us. This includes:
+                    </p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Personal information (name, email address, phone number)</li>
+                      <li>Account credentials and preferences</li>
+                      <li>Payment information (processed securely through third-party providers)</li>
+                      <li>Contract documents you upload for analysis</li>
+                      <li>Communication records with our support team</li>
+                    </ul>
+                  </div>
+                </div>
 
-                <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Changes to This Policy</h2>
-                  <p className="text-gray-700 leading-relaxed">
-                    We may update this Privacy Policy from time to time. We will notify you of any 
-                    material changes by posting the new Privacy Policy on this page and updating the 
-                    effective date.
-                  </p>
-                </section>
+                <div>
+                  <div className="flex items-center mb-6">
+                    <Lock className="w-6 h-6 text-blue-600 mr-3" />
+                    <h2 className="text-2xl font-bold text-gray-900">How We Use Your Information</h2>
+                  </div>
+                  <div className="text-gray-600 space-y-4">
+                    <p>We use the information we collect to:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Provide, maintain, and improve our contract analysis services</li>
+                      <li>Process your payments and manage your account</li>
+                      <li>Send you technical notices, updates, and support messages</li>
+                      <li>Respond to your comments, questions, and customer service requests</li>
+                      <li>Develop new features and enhance user experience</li>
+                      <li>Comply with legal obligations and protect our rights</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex items-center mb-6">
+                    <FileText className="w-6 h-6 text-blue-600 mr-3" />
+                    <h2 className="text-2xl font-bold text-gray-900">Contract Document Security</h2>
+                  </div>
+                  <div className="text-gray-600 space-y-4">
+                    <p className="font-semibold text-gray-900">
+                      Your contract documents are handled with the highest level of security:
+                    </p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>All documents are encrypted during upload and processing</li>
+                      <li>Documents are automatically deleted from our servers after 30 days</li>
+                      <li>Only AI systems process your documents - no human review</li>
+                      <li>We never share, sell, or use your contracts for any other purpose</li>
+                      <li>You can request immediate deletion of your documents at any time</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Information Sharing</h2>
+                  <div className="text-gray-600 space-y-4">
+                    <p>
+                      We do not sell, trade, or otherwise transfer your personal information to third parties, 
+                      except in the following limited circumstances:
+                    </p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>With service providers who assist us in operating our platform (under strict confidentiality agreements)</li>
+                      <li>When required by law or to protect our rights and safety</li>
+                      <li>In connection with a business transaction (merger, acquisition, etc.)</li>
+                      <li>With your explicit consent for specific purposes</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Data Retention</h2>
+                  <div className="text-gray-600 space-y-4">
+                    <p>We retain your information for as long as necessary to provide our services and fulfill legal obligations:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Account information: Retained while your account is active</li>
+                      <li>Contract documents: Automatically deleted after 30 days</li>
+                      <li>Analysis results: Retained for your reference while account is active</li>
+                      <li>Communication records: Retained for 3 years for support purposes</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Rights</h2>
+                  <div className="text-gray-600 space-y-4">
+                    <p>You have several rights regarding your personal information:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Access and review your personal information</li>
+                      <li>Correct inaccurate or incomplete information</li>
+                      <li>Delete your account and personal information</li>
+                      <li>Request immediate deletion of uploaded documents</li>
+                      <li>Opt out of marketing communications</li>
+                      <li>Export your data in a portable format</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Security Measures</h2>
+                  <div className="text-gray-600 space-y-4">
+                    <p>We implement comprehensive security measures to protect your information:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>End-to-end encryption for all data transmission</li>
+                      <li>Regular security audits and penetration testing</li>
+                      <li>Access controls and employee background checks</li>
+                      <li>SOC 2 Type II compliance (in progress)</li>
+                      <li>24/7 security monitoring and incident response</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Us</h2>
+                  <div className="text-gray-600">
+                    <p className="mb-4">
+                      If you have any questions about this Privacy Policy or our privacy practices, 
+                      please contact our Privacy Team:
+                    </p>
+                    <div className="bg-gray-50 rounded-lg p-6">
+                      <p className="font-semibold text-gray-900">Contract Guard Privacy Team</p>
+                      <p>Email: privacy@contractguard.com</p>
+                      <p>Phone: 1-800-CONTRACT</p>
+                      <p>Response time: Within 48 hours</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Policy Updates</h2>
+                  <div className="text-gray-600">
+                    <p>
+                      We may update this Privacy Policy from time to time to reflect changes in our practices 
+                      or applicable laws. We will notify you of any material changes by email and by posting 
+                      the updated policy on our website with a new effective date.
+                    </p>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto text-center">
-          <p className="text-gray-300">
-            © {new Date().getFullYear()} SkyLink Satellite Internet. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

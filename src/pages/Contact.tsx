@@ -1,184 +1,211 @@
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Zap, ArrowLeft, Phone, Mail, MapPin, Clock, MessageCircle, Headphones } from 'lucide-react';
+import React, { useState } from 'react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-white/20 shadow-lg">
-        <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 sm:h-20">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">SkyLink</span>
-            </Link>
-            
-            <Link to="/" className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Home</span>
-            </Link>
-          </div>
-        </nav>
-      </header>
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-      {/* Content */}
-      <div className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <Phone className="w-16 h-16 text-blue-600 mx-auto mb-6" />
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Contact SkyLink</h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Get in touch with our expert team. We're here to help you get connected.
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you would typically send the form data to your backend
+    console.log('Form submitted:', formData);
+    setIsSubmitted(true);
+    
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({ name: '', email: '', message: '' });
+    }, 3000);
+  };
+
+  return (
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+              Get in <span className="text-blue-600">Touch</span>
+            </h1>
+            <p className="text-xl text-gray-600 mb-8">
+              Have questions about Contract Guard? We're here to help protect your freelance business.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <div className="bg-white/70 backdrop-blur-md rounded-3xl p-8 border border-white/30 shadow-lg">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Get In Touch</h2>
+      {/* Contact Form & Info */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            
+            {/* Contact Form */}
+            <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
               
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900">Call Us</h3>
-                    <a href="tel:1-800-555-0123" className="text-blue-600 hover:text-blue-700 font-semibold">1-800-555-0123</a>
-                  </div>
+              {isSubmitted ? (
+                <div className="text-center py-8">
+                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
+                  <p className="text-gray-600">Thank you for contacting us. We'll get back to you within 24 hours.</p>
                 </div>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-emerald-600 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <h3 className="font-bold text-gray-900">Email Us</h3>
-                    <a href="mailto:support@skylinkinternet.com" className="text-blue-600 hover:text-blue-700 font-semibold">support@skylinkinternet.com</a>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      placeholder="Your full name"
+                    />
                   </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-white" />
-                  </div>
+
                   <div>
-                    <h3 className="font-bold text-gray-900">Support Hours</h3>
-                    <p className="text-gray-700">24/7 Customer Support</p>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      placeholder="your@email.com"
+                    />
                   </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-orange-600 to-red-600 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
+
                   <div>
-                    <h3 className="font-bold text-gray-900">Service Area</h3>
-                    <p className="text-gray-700">Nationwide Coverage - All 50 States</p>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={6}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                      placeholder="Tell us how we can help you..."
+                    />
                   </div>
-                </div>
-              </div>
-              
-              <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200/50">
-                <h3 className="font-bold text-gray-900 mb-2 flex items-center">
-                  <Headphones className="w-5 h-5 text-blue-600 mr-2" />
-                  Need Immediate Help?
-                </h3>
-                <p className="text-gray-700 mb-4">Our technical support team is available 24/7 to assist with any issues.</p>
-                <a href="tel:1-800-555-0123" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-semibold">
-                  Call Now
-                </a>
-              </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold flex items-center justify-center"
+                  >
+                    <Send className="w-5 h-5 mr-2" />
+                    Send Message
+                  </button>
+                </form>
+              )}
             </div>
 
-            {/* Contact Form */}
-            <div className="bg-white/70 backdrop-blur-md rounded-3xl p-8 border border-white/30 shadow-lg">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
-                <MessageCircle className="w-6 h-6 text-blue-600 mr-3" />
-                Send Us a Message
-              </h2>
-              
-              <form className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">First Name</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 rounded-xl bg-white/80 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Your first name"
-                    />
+            {/* Contact Information */}
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
+                <p className="text-gray-600 mb-8">
+                  Get in touch with our support team. We're here to help you protect your freelance business.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
-                    <label className="block text-gray-700 font-semibold mb-2">Last Name</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 rounded-xl bg-white/80 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Your last name"
-                    />
+                    <h3 className="font-semibold text-gray-900 mb-1">Email Support</h3>
+                    <p className="text-gray-600">support@contractguard.com</p>
+                    <p className="text-sm text-gray-500">We typically respond within 24 hours</p>
                   </div>
                 </div>
-                
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Email</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 rounded-xl bg-white/80 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="your@email.com"
-                  />
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Phone Support</h3>
+                    <p className="text-gray-600">1-800-CONTRACT</p>
+                    <p className="text-sm text-gray-500">Available for Pro and Business plans</p>
+                  </div>
                 </div>
-                
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Phone Number</label>
-                  <input
-                    type="tel"
-                    className="w-full px-4 py-3 rounded-xl bg-white/80 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="(555) 123-4567"
-                  />
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Support Hours</h3>
+                    <p className="text-gray-600">Monday - Friday: 9AM - 6PM EST</p>
+                    <p className="text-sm text-gray-500">Emergency support available 24/7</p>
+                  </div>
                 </div>
-                
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-2">ZIP Code</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 rounded-xl bg-white/80 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Your ZIP code"
-                    maxLength={5}
-                  />
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Headquarters</h3>
+                    <p className="text-gray-600">San Francisco, CA</p>
+                    <p className="text-sm text-gray-500">Serving freelancers worldwide</p>
+                  </div>
                 </div>
-                
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Message</label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-xl bg-white/80 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                    placeholder="Tell us how we can help you..."
-                  ></textarea>
+              </div>
+
+              {/* FAQ Quick Links */}
+              <div className="bg-gray-50 p-6 rounded-2xl">
+                <h3 className="font-semibold text-gray-900 mb-4">Quick Help</h3>
+                <div className="space-y-3 text-sm">
+                  <div>
+                    <p className="font-medium text-gray-900">How does contract analysis work?</p>
+                    <p className="text-gray-600">Upload your contract and get AI-powered analysis in seconds.</p>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900">Is my data secure?</p>
+                    <p className="text-gray-600">Yes, all contracts are encrypted and automatically deleted after analysis.</p>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900">Can I cancel anytime?</p>
+                    <p className="text-gray-600">Absolutely! No contracts or commitments required.</p>
+                  </div>
                 </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-                >
-                  Send Message
-                </button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto text-center">
-          <p className="text-gray-300">
-            © {new Date().getFullYear()} SkyLink Satellite Internet. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
